@@ -19,7 +19,7 @@ public class Pessoa {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	protected  long idPessoa;
+	
 	@Column (length=30, nullable=false, unique=true)
 	protected String nome;
 	@Column (length=11, nullable=false, unique=true)

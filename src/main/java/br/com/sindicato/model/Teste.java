@@ -22,14 +22,14 @@ public class Teste {
 	
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Contribuinte contribuinte = new Contribuinte();
-		contribuinte.cadastrarContribuinte(session);
+		//Contribuinte contribuinte = new Contribuinte();
+		//contribuinte.cadastrarContribuinte(session);
 		
 	
 		 
 
-		//boolean verif = session.isConnected();
-		//System.out.println(verif);
+		boolean verif = session.isConnected();
+		System.out.println(verif);
 		
 
 		

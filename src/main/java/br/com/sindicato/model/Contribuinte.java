@@ -8,7 +8,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.transaction.SystemException;
@@ -19,11 +21,17 @@ import org.hibernate.Session;
 @Entity
 @PrimaryKeyJoinColumn(name="idPessoa")
 public class Contribuinte extends Pessoa{
-	
+	@Id
+	private long idContribuinte;
+	@Column
 	private Situacao situacao;
+	@Column
 	private Date dataFiliacao;
+	@Column
 	private double divida = 0;
+	@Column
 	private String processos;
+	@Column
 	private int matricula;
 	
 	
@@ -73,6 +81,12 @@ public class Contribuinte extends Pessoa{
 		System.out.println("algum dependente");
 		contribuinte.setDependentes(scanner.next());
 		
+		//SITUAÇÃO
+		System.out.println("Ativo");
+		situacao.setAtivo(scanner.next());
+		System.out.println("Ta vivo");
+		situacao.setVida(scanner.nextBoolean());
+		
 		
 	
 		org.hibernate.Transaction tx = null;
@@ -116,10 +130,6 @@ public class Contribuinte extends Pessoa{
 			
 		}
 	
-		
-		
-		
-		
 		
 		
 	}

@@ -3,9 +3,11 @@ package br.com.sindicato.model;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Endereco {
+	@Id
 	@Column(length=15, nullable=false)
 	protected String cidade;
 	@Column(length=2, nullable=false)
