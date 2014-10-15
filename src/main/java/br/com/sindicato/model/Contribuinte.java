@@ -18,24 +18,26 @@ import javax.transaction.Transaction;
 
 import org.hibernate.Session;
 
-@Entity
-@PrimaryKeyJoinColumn(name="idPessoa")
+
 public class Contribuinte extends Pessoa{
-	@Id
+	
+	
 	private long idContribuinte;
-	@Column
+
 	private Situacao situacao;
-	@Column
+	
 	private Date dataFiliacao;
-	@Column
+	
 	private double divida = 0;
-	@Column
+	
 	private String processos;
-	@Column
+	
 	private int matricula;
 	
+
 	
-	public static void cadastrarContribuinte(Session session) throws ParseException, IllegalStateException, SystemException {
+	
+	/*public static void cadastrarContribuinte(Session session) throws ParseException, IllegalStateException, SystemException {
 		
 		Contribuinte contribuinte = new Contribuinte();
 		Endereco endereco = new Endereco();
@@ -132,7 +134,7 @@ public class Contribuinte extends Pessoa{
 	
 		
 		
-	}
+	*/
 	
 
 

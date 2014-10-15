@@ -5,10 +5,12 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.persistence.Entity;
+
 public class Caixa {
 	
-	public List<Entrada> entradas;
-	public List<Saida> saidas;
+	//public List<Entrada> entradas;
+	//public List<Saida> saidas;
 	
 	public double calculaSaldo (List entradas, List saidas) throws ParseException {
 		

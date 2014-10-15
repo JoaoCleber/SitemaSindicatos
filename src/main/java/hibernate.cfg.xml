@@ -24,6 +24,7 @@
 		<mapping class="br.com.sindicato.model.Pessoa"/>
 		<mapping class="br.com.sindicato.model.Instituicao"/>
 		<mapping class="br.com.sindicato.model.Saida"/>
+		<mapping class="br.com.sindicato.model.Teste"/>
 		
 		
 		

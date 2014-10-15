@@ -13,23 +13,44 @@ import javax.transaction.SystemException;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 
+import br.com.sindicato.daos.ContribuinteDao;
 import br.com.sistemassindicato.hibernate.HibernateUtil;
 
 public class Teste {
 
-	public static void main(String[] args) throws ParseException, IllegalStateException, SystemException {
+	public static void main(String[] args) {
+		try {
+			
+			Session session = HibernateUtil.getSessionFactory().openSession();
+			//Contribuinte contribuinte = new Contribuinte();
+			
+			
+			
+			boolean verif = session.isConnected();
+			System.out.println(verif);
+			
+			/*ContribuinteDao cd = new ContribuinteDao();
+			Scanner scanner = new Scanner(System.in);
+			Contribuinte c = new Contribuinte();
+			System.out.println("digite o nome");
+			*///c.setNome(scanner.next());
+			
+			
+			
+			//cd.inserirContribuinte(c);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 	
+	
 		
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		
 		//Contribuinte contribuinte = new Contribuinte();
 		//contribuinte.cadastrarContribuinte(session);
-		
-	
-		 
-
-		boolean verif = session.isConnected();
-		System.out.println(verif);
+		//boolean verif = session.isConnected();
+		//System.out.println(verif);
 		
 
 		

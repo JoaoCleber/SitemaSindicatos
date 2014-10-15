@@ -6,15 +6,14 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-@Entity
-@PrimaryKeyJoinColumn(name="idContribuinte")
+
 public class Situacao {
 	
-	@Id
-	@Column
+
 	private String ativo;
-	@Column
+
 	private boolean vida;
+	
 	
 	public String getAtivo() {
 		return ativo;

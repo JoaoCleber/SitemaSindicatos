@@ -1,5 +1,6 @@
 package br.com.sindicato.model;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -10,31 +11,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+
 public class Pessoa {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-	@Column (length=30, nullable=false, unique=true)
-	protected String nome;
-	@Column (length=11, nullable=false, unique=true)
-	protected String cpf;
-	@Column(length=10, nullable=false)
-	protected String rg;
-	@Column(length=12, nullable=false)
-	protected String titulo;
-	@Temporal(TemporalType.DATE)
-	protected Date dataNascimento;
-	@Column(length=10)
-	protected String telefone;
-	@Column
-	protected String dependentes;
-	Endereco endereco;
+	private long idPessoa;
+
+	
+	private String nome;
+	
+	private String cpf;
+	
+	private String rg;
+	
+	private String titulo;
+	
+	private Date dataNascimento;
+	
+	private String telefone;
+	
+	private String dependentes;
+	//Endereco endereco;
 	
 	
 	
@@ -68,7 +69,7 @@ public class Pessoa {
 	public void setDataNascimento(DateFormat df) {
 		//this.dataNascimento = dataNascimento;
 	}
-	public Endereco getEndereco() {
+	/*public Endereco getEndereco() {
 		return endereco;
 	}
 	public void setEndereco(Endereco endereco) {
@@ -76,7 +77,7 @@ public class Pessoa {
 	}
 	public String getTelefone() {
 		return telefone;
-	}
+	*///}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
@@ -87,13 +88,15 @@ public class Pessoa {
 	public void setDependentes(String dependentes) {
 		this.dependentes = dependentes;
 	}
-	@Override
-	public String toString() {
+	
+	/*public String toString() {
 		return "Pessoa [nome=" + nome + ", cpf=" + cpf + ", rg=" + rg
 				+ ", titulo=" + titulo + ", dataNascimento=" + dataNascimento
 				+ ", endereco=" + endereco + ", telefone=" + telefone
 				+ ", dependentes=" + dependentes + "]";
-	}
+	*///}
+
+
 
 	
 	

@@ -5,19 +5,19 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+
 public class Endereco {
-	@Id
-	@Column(length=15, nullable=false)
-	protected String cidade;
-	@Column(length=2, nullable=false)
-	protected String uf;
-	@Column(length=20, nullable=false)
-	protected String rua;
-	@Column(length=20, nullable=false)
-	protected String bairro;
-	@Basic
-	protected String numeroCasa;
+
+	
+	private String cidade;
+
+	private String uf;
+
+	private String rua;
+	
+	private String bairro;
+
+	private String numeroCasa;
 	
 	
 	
