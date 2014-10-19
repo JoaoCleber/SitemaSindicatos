@@ -4,29 +4,16 @@
 
 <hibernate-configuration>
 	<session-factory>
-		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sindicato</property>
-		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">1234</property>
-		
-		<property name="connection.pool_size">1</property>
-		
-	    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-	
-	    
-		<property name="show_sql">true</property>
-		<mapping class="br.com.sindicato.model.Entrada" />
+
 		<mapping class="br.com.sindicato.model.Contribuinte" />
-		<mapping class="br.com.sindicato.model.Situacao"/>
-		<mapping class="br.com.sindicato.model.Caixa"/>
-		<mapping class="br.com.sindicato.model.Endereco"/>
-		<mapping class="br.com.sindicato.model.Funcionario"/>
-		<mapping class="br.com.sindicato.model.Pessoa"/>
-		<mapping class="br.com.sindicato.model.Instituicao"/>
-		<mapping class="br.com.sindicato.model.Saida"/>
-		<mapping class="br.com.sindicato.model.Teste"/>
-		
-		
-		
+		<mapping class="br.com.sindicato.model.Situacao" />
+		<mapping class="br.com.sindicato.model.Caixa" />
+		<mapping class="br.com.sindicato.model.Endereco" />
+		<mapping class="br.com.sindicato.model.Funcionario" />
+		<mapping class="br.com.sindicato.model.Pessoa" />
+		<mapping class="br.com.sindicato.model.Instituicao" />
+		<mapping class="br.com.sindicato.model.Saida" />
+
+
 	</session-factory>
 </hibernate-configuration>

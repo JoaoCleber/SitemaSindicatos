@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>br.com.sistemasidicato</groupId>
-	<artifactId>SistemaSindicato</artifactId>
+	<groupId>br.com.sistemassindicato</groupId>
+	<artifactId>SistemaSindicatos</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>SistemaSindicato</name>
+	<name>SistemaSindicatos</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -38,6 +38,20 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.6</version>
 		</dependency>
+
+		<dependency>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.12.1.GA</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.6.Final</version>
+		</dependency>
+
+
 	</dependencies>
 
 </project>
