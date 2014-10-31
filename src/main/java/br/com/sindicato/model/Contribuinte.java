@@ -9,22 +9,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Contribuinte extends Pessoa {
 
-	// private Situacao situacao;
-
 	@Column
+	@Temporal(TemporalType.DATE)
 	private Date dataFiliacao;
 	@Column
 	private double divida = 0;
-	@Column
-	private String processos;
-	@Column
-	private int matricula;
-	
-	
+
 	public Contribuinte() {
 
 	}
@@ -37,32 +33,12 @@ public class Contribuinte extends Pessoa {
 		this.divida = divida;
 	}
 
-	public void setProcessos(String processos) {
-		this.processos = processos;
-	}
-
-	public void setMatricula(int matricula) {
-		this.matricula = matricula;
-	}
-
-	/*
-	 * public Situacao getSituacao() { return situacao; }
-	 */
-
 	public Date getDataFiliacao() {
 		return dataFiliacao;
 	}
 
 	public double getDivida() {
 		return divida;
-	}
-
-	public String getProcessos() {
-		return processos;
-	}
-
-	public int getMatricula() {
-		return matricula;
 	}
 
 }

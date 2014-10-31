@@ -1,61 +1,94 @@
 package br.com.sindicato.daos;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
+import br.com.sindicato.model.Contribuinte;
 import br.com.sindicato.model.Funcionario;
+import br.com.sistemassindicato.hibernate.HibernateUtil;
 
 public class FuncionarioDao {
 
-	private SessionFactory factory;
+	Session session = HibernateUtil.getSessionFactory();
+	
+	public void inserirFuncionario(Funcionario funcionario) {
 
-	public void inserirContribuinte(Funcionario funcionario) {
-		Session session = factory.openSession();
+		Transaction tx = session.beginTransaction();
 		try {
 
-			session.save(funcionario);
+			session.saveOrUpdate(funcionario);
+			tx.commit();
 			session.flush();
 			session.close();
 		} catch (Exception e) {
 
-			System.out.println(e);
-			session.close();
+			e.printStackTrace();
+			tx.rollback();
 
 		}
 
 	}
 
-	public void atualizarContribuinte(Funcionario funcionario) {
-		Session session = factory.openSession();
+	public void atualizarFuncionario(Session session, int id, String nome,
+			String cpf, String rg, String tituloEleitor, String telefone,
+			String dependentes, String cargo, double salario) {
+
+		Transaction tx = session.beginTransaction();
+		Funcionario funcionarioPesq = (Funcionario) session.load(
+				Funcionario.class, id);
+
+		funcionarioPesq.setNome(nome);
+		funcionarioPesq.setCpf(cpf);
+		funcionarioPesq.setRg(rg);
+		funcionarioPesq.setTitulo(tituloEleitor);
+		funcionarioPesq.setTelefone(telefone);
+		funcionarioPesq.setDependentes(dependentes);
+		funcionarioPesq.setCargo(cargo);
+		funcionarioPesq.setSalario(salario);
+
 		try {
 
-			session.update(funcionario);
+			session.update(funcionarioPesq);
+			tx.commit();
 			session.flush();
 			session.close();
 
 		} catch (Exception e) {
-			System.out.println(e);
-			session.close();
+			e.printStackTrace();
+			tx.rollback();
 		}
 	}
 
-	public void deletarContribuinte(Funcionario funcionario) {
-		Session session = factory.openSession();
+	public void deletarFuncionario(Session session, int id) {
+
+		Transaction tx = session.beginTransaction();
+		Funcionario funcionarioPesq = (Funcionario) session.load(
+				Funcionario.class, id);
+
 		try {
 
-			session.delete(funcionario);
+			session.delete(funcionarioPesq);
+			tx.commit();
 			session.flush();
 			session.close();
 
 		} catch (Exception e) {
-			System.out.println(e);
-			session.close();
+			e.printStackTrace();
+			tx.rollback();
 		}
 
 	}
 
-	public void listarFuncionario() {
-
+	public List<Funcionario> listarFuncionario() {
+		return session.createCriteria(Funcionario.class).list();
 	}
 
+	public Funcionario buscarPorId(int id) {
+		Funcionario retorno;
+		retorno = (Funcionario) session.get(Funcionario.class, id);
+		return retorno;
+	}
 }

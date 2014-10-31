@@ -4,15 +4,21 @@
 
 <hibernate-configuration>
 	<session-factory>
+	
+	   
 
 		<mapping class="br.com.sindicato.model.Contribuinte" />
-		<mapping class="br.com.sindicato.model.Situacao" />
-		<mapping class="br.com.sindicato.model.Caixa" />
-		<mapping class="br.com.sindicato.model.Endereco" />
 		<mapping class="br.com.sindicato.model.Funcionario" />
 		<mapping class="br.com.sindicato.model.Pessoa" />
+		<mapping class="br.com.sindicato.model.Endereco" />
+		
 		<mapping class="br.com.sindicato.model.Instituicao" />
 		<mapping class="br.com.sindicato.model.Saida" />
+		<mapping class="br.com.sindicato.model.Situacao" />
+        <mapping class="br.com.sindicato.model.Caixa" />
+       
+	
+		
 
 
 	</session-factory>

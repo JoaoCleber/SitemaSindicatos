@@ -3,19 +3,26 @@ package br.com.sindicato.model;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -24,35 +31,38 @@ public class Pessoa implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
-	@Column
-	private long idPessoa;
-	@Column
+	private int idPessoa;
+
 	private String nome;
-	@Column
+
 	private String cpf;
-	@Column
+
 	private String rg;
 
 	private String titulo;
 
-	// private Date dataNascimento;
+	// private String dataNascimento;
 
 	private String telefone;
 
 	private String dependentes;
-
-	// Endereco endereco;
+	@OneToOne(mappedBy = "pessoa")
+	private Endereco endereco;
 
 	public Pessoa() {
 
 	}
 
-	public long getIdPessoa() {
-		return idPessoa;
+	public Endereco getEndereco() {
+		return endereco;
 	}
 
-	public void setIdPessoa(long idPessoa) {
-		this.idPessoa = idPessoa;
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public int getIdPessoa(int idPessoa) {
+		return idPessoa;
 	}
 
 	public void setIdPessoa(int idPessoa) {
@@ -63,10 +73,6 @@ public class Pessoa implements Serializable {
 		return telefone;
 	}
 
-	@OneToMany
-	// public void setDataNascimento(Date dataNascimento) {
-	// this.dataNascimento = dataNascimento;
-	// }
 	public String getNome() {
 		return nome;
 	}
@@ -99,18 +105,6 @@ public class Pessoa implements Serializable {
 		this.titulo = titulo;
 	}
 
-	// public Date getDataNascimento() {
-	// return dataNascimento;
-	// }
-	public void setDataNascimento(DateFormat df) {
-		// this.dataNascimento = dataNascimento;
-	}
-
-	/*
-	 * public Endereco getEndereco() { return endereco; } public void
-	 * setEndereco(Endereco endereco) { this.endereco = endereco; } public
-	 * String getTelefone() { return telefone;
-	 */// }
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}

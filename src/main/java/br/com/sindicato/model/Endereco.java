@@ -3,19 +3,35 @@ package br.com.sindicato.model;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
+@Entity
 public class Endereco {
 
+	@Id
+	@Column
 	private String cidade;
 
+	@Column
 	private String uf;
 
+	@Column
 	private String rua;
 
+	@Column
 	private String bairro;
 
+	@Column
 	private String numeroCasa;
+
+	@ManyToOne
+	@JoinColumn(name = "idPessoa")
+	private Pessoa pessoa;
 
 	public Endereco() {
 
