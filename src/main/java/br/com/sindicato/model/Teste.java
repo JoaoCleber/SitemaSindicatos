@@ -13,14 +13,14 @@ public class Teste {
 	public static void main(String[] args) {
 
 	
-		Contribuinte c = new Contribuinte();
+		/*Contribuinte c = new Contribuinte();
 		Contribuinte cont2 = new Contribuinte();
 		Endereco end = new Endereco();
 		
 		ContribuinteDao cd = new ContribuinteDao();
 	
 		Contribuinte testa = cd.buscarPorId(1671168);
-		System.out.println(testa.getNome());
+		System.out.println(testa.getNome());*/
 
 	}
 
